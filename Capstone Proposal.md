@@ -62,10 +62,13 @@ Contact Page
 
 ### Mockups
 
-![Home Page] (Mockups/HomePage.png)
-![Assessment] (Mockups/Assessment.png)
-![Eligibility Results] (eligibilityResults.png)
-![Contact] (Mockups/Contact.png)
+![Home Page] (mockups/HomePage.png)
+
+![Assessment] (mockups/Assessment.png) 
+
+![Eligibility Results] (mockups/eligibilityResults.png) 
+
+![Contact] (mockups/Contact.png)
 
 ### Data
 
