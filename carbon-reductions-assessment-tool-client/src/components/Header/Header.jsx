@@ -26,16 +26,16 @@ function Header() {
           menuOpen ? "navigation__menu--open" : ""
         }`}
       >
-        <a href="#home" className="navigation__link">
+        <a href="/" className="navigation__link">
           Home Page
         </a>
-        <a href="#services" className="navigation__link">
+        <a href="/services" className="navigation__link">
           Services
         </a>
-        <a href="#assessment" className="navigation__link">
+        <a href="/assessment" className="navigation__link">
           Assessment
         </a>
-        <a href="#contact" className="navigation__link">
+        <a href="/contact" className="navigation__link">
           Contact
         </a>
       </nav>

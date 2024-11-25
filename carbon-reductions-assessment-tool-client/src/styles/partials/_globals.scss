@@ -10,5 +10,27 @@
   body {
     font-family: "WorkSans", sans-serif;
   }
+
+  h1{
+    font-size: 2rem;
+    font-weight: 600;
+    color: $primaryWhite; 
+    text-transform: uppercase; 
+    letter-spacing: .25rem;
+    @include tablet{
+      font-size: 3rem;
+  }
+  }
   
+  h2{
+    font-weight: 600;
+    font-size: 1.4rem;
+    color: $primaryWhite;
+  }
+
+  p{
+    font-size: 1rem;
+    font-weight: 500;
+    color: $primaryWhite;
+  }
 
