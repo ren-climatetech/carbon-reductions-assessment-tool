@@ -1,0 +1,14 @@
+@use "variables" as *;
+@use "mixins" as *;
+@use "typography";
+
+* {
+    box-sizing: border-box;
+    margin:0;
+  }
+  
+  body {
+    font-family: "WorkSans", sans-serif;
+  }
+  
+
