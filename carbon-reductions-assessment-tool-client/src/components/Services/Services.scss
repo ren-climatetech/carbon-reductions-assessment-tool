@@ -3,35 +3,77 @@
 
 .services {
   background-color: $primaryNavy;
+  padding: 1rem 0;
+
+
+  @include desktop {
+    display: flex;
+    position: relative;
+    justify-content: center;
+    margin-top: -5rem;
+    z-index: -1;
+  }
+
   &__container {
     display: flex;
-    margin-bottom: 0.5rem;
-    padding-right: 0.5rem;
-    padding-bottom: 0.5rem;
-    border-radius: 1rem;
+    margin: 0 1rem;
+    margin-bottom: 1rem;
+    border-radius: 0.5rem;
+    background: rgba($primaryWhite, 0.2);
+    box-shadow: 0 0.25rem 0.625rem rgba($primaryWhite, 0.2);
+
+    @include desktop {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      z-index: 2;
+    }
   }
   &__container-text {
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
     justify-items: center;
-    background: rgba($primaryNavy, 0.2);
+
+    @include desktop {
+      text-align: center;
+      max-width: 25rem;
+     
   }
+}
   &__image {
     width: 12rem;
     height: 12rem;
     background-size: cover;
-    box-shadow: 0 0.25rem 0.625rem rgba($primaryWhite, 0.2);
-    border-end-end-radius: 1rem;
-    border-top-right-radius: 1rem;
+    border-bottom-left-radius: 0.5rem;
+    border-top-left-radius: 0.5rem;
+    z-index: 2;
+
+    @include desktop {
+      width: 25rem;
+      height: 25rem;
+      border-top: 0.5rem;
+      border-bottom: 0;
+      border-bottom-left-radius: 0rem;
+    border-top-left-radius: 0.5rem;
+    border-top-right-radius: 0.5rem;
+      marigin-top: -3 rem;
+    }
   }
   &__title {
-    padding-left: 1rem;
+    padding: 0 1.25rem;
     padding-bottom: 0.5rem;
+
+    @include desktop{
+    background-color: $primaryGreen;
+    display: flex;
+    justify-content: center;
+    padding-top: .3rem;
+    
   }
+}
   &__description {
-    padding: 0 1rem;
+    padding: 0.5rem 1.25rem;
     text-align: justify;
-    line-height: 1.25;
   }
 }

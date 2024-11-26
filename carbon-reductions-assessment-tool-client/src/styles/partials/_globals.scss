@@ -13,7 +13,7 @@
 
   h1{
     font-size: 2rem;
-    font-weight: 600;
+    font-weight: 700;
     color: $primaryWhite; 
     text-transform: uppercase; 
     letter-spacing: .25rem;
@@ -29,8 +29,17 @@
   }
 
   p{
-    font-size: 1rem;
+    font-size: .8125rem;
     font-weight: 500;
-    color: $primaryWhite;
+    color:  $primaryWhite;
+    line-height: 1.35;
+
+    @include tablet{
+      font-size: .85rem;
+    }
+    @include desktop{
+      font-size: 1rem;
+    }
+
   }
 
