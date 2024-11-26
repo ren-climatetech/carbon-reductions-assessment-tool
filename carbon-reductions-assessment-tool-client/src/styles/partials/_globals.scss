@@ -3,43 +3,47 @@
 @use "typography";
 
 * {
-    box-sizing: border-box;
-    margin:0;
-  }
-  
-  body {
-    font-family: "WorkSans", sans-serif;
-  }
+  box-sizing: border-box;
+  margin: 0;
+}
 
-  h1{
-    font-size: 2rem;
-    font-weight: 700;
-    color: $primaryWhite; 
-    text-transform: uppercase; 
-    letter-spacing: .25rem;
-    @include tablet{
-      font-size: 3rem;
-  }
-  }
-  
-  h2{
-    font-weight: 600;
-    font-size: 1.4rem;
-    color: $primaryWhite;
-  }
+body {
+  font-family: "WorkSans", sans-serif;
+}
 
-  p{
-    font-size: .8125rem;
-    font-weight: 500;
-    color:  $primaryWhite;
-    line-height: 1.35;
-
-    @include tablet{
-      font-size: .85rem;
-    }
-    @include desktop{
-      font-size: 1rem;
-    }
-
+h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: $primaryWhite;
+  text-transform: uppercase;
+  letter-spacing: 0.25rem;
+  @include tablet {
+    font-size: 3rem;
   }
+}
 
+h2 {
+  font-weight: 600;
+  font-size: 1.4rem;
+  color: $primaryWhite;
+
+  @include tablet {
+    font-size: 1.6rem;
+  }
+}
+
+p {
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: $primaryWhite;
+  line-height: 1.35;
+
+  @include tablet {
+    font-size: 1rem;
+    line-height: 1.4;
+  }
+  @include desktop {
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+}

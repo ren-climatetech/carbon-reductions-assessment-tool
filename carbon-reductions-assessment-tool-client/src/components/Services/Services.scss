@@ -5,13 +5,15 @@
   background-color: $primaryNavy;
   padding: 1rem 0;
 
+    @include tablet{
+      padding: 1rem 3rem;
+    }
 
   @include desktop {
     display: flex;
-    position: relative;
+
     justify-content: center;
     margin-top: -5rem;
-    z-index: -1;
   }
 
   &__container {
@@ -20,7 +22,8 @@
     margin-bottom: 1rem;
     border-radius: 0.5rem;
     background: rgba($primaryWhite, 0.2);
-    box-shadow: 0 0.25rem 0.625rem rgba($primaryWhite, 0.2);
+    border: 0.05rem solid $secondaryDarkPurple;
+    box-shadow: 0 0.1rem 0.25rem rgba($primaryNavy, 0.1);
 
     @include desktop {
       display: flex;
@@ -38,9 +41,8 @@
     @include desktop {
       text-align: center;
       max-width: 25rem;
-     
+    }
   }
-}
   &__image {
     width: 12rem;
     height: 12rem;
@@ -49,31 +51,37 @@
     border-top-left-radius: 0.5rem;
     z-index: 2;
 
+    @include tablet{
+      width: 15rem;
+      height: 15rem;
+    }
+
     @include desktop {
       width: 25rem;
       height: 25rem;
       border-top: 0.5rem;
       border-bottom: 0;
       border-bottom-left-radius: 0rem;
-    border-top-left-radius: 0.5rem;
-    border-top-right-radius: 0.5rem;
+      border-top-left-radius: 0.5rem;
+      border-top-right-radius: 0.5rem;
       marigin-top: -3 rem;
     }
   }
   &__title {
-    padding: 0 1.25rem;
-    padding-bottom: 0.5rem;
+    padding: 0.5rem 1.25rem;
 
-    @include desktop{
-    background-color: $primaryGreen;
-    display: flex;
-    justify-content: center;
-    padding-top: .3rem;
-    
+    @include desktop {
+      background-color: $secondaryDarkPurpleGrey;
+      display: flex;
+      justify-content: center;
+      padding: 1rem;
+    }
   }
-}
   &__description {
     padding: 0.5rem 1.25rem;
     text-align: justify;
+    @include desktop {
+      padding: 1.5rem;
+    }
   }
 }

@@ -30,7 +30,7 @@ function Header() {
           Home Page
         </a>
         <a href="/services" className="navigation__link">
-          Services
+          About Us
         </a>
         <a href="/assessment" className="navigation__link">
           Assessment

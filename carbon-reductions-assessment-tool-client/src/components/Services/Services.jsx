@@ -2,12 +2,14 @@ import "./Services.scss";
 import carbon from "../../assets/images/carbonassessment.jpg"
 import cdp from "../../assets/images/cdpsupport.jpg"
 import credits from "../../assets/images/renewableenergy.jpg"
+import consulting from "../../assets/images/consulting.jpg"
+import carbonaccounting from "../../assets/images/carbonaccounting.jpg"
 
 function Services() {
   return (
     <div className="services">
       <div className="services__container">
-        <img className="services__image" src={carbon} />
+        <img className="services__image" src={carbonaccounting} />
         <div className="services__container-text">
         <h2 className="services__title">GHG Assessments </h2>
         <p className="services__description">Understanding your organization's carbon emissions is the first step toward meaningful reduction. Our carbon accounting services provide a comprehensive analysis of your greenhouse gas emissions across all operations. We empower you to make informed decisions and set achievable reduction targets.</p>
