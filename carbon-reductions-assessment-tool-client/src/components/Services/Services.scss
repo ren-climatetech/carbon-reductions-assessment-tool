@@ -22,8 +22,8 @@
     margin-bottom: 1rem;
     border-radius: 0.5rem;
     background: rgba($primaryWhite, 0.2);
-    border: 0.05rem solid $secondaryDarkPurple;
-    box-shadow: 0 0.1rem 0.25rem rgba($primaryNavy, 0.1);
+    // border: 0.05rem solid $secondaryDarkPurple;
+    box-shadow: 0.2rem 0rem .2rem rgba($primaryWhite, 0.25);
 
     @include desktop {
       display: flex;
@@ -75,6 +75,7 @@
       display: flex;
       justify-content: center;
       padding: 1rem;
+      border-bottom: .125rem solid rgba($primaryWhite, 0.6);
     }
   }
   &__description {
