@@ -1,7 +1,8 @@
 //This file sends the seeded data from your database to the frontend. This is used for allowing drop down selections in the front end based on the databases in the backend.
-
+import initKnex from "knex";
+import configuration from "../knexfile.js";
+const knex = initKnex(configuration);
 import express from "express";
-import knex from "knex"; // import the knex library
 
 const router = express.Router();
 

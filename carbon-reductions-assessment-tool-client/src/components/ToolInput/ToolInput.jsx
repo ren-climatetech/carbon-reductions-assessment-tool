@@ -18,8 +18,8 @@ function ToolInput() {
   useEffect(() => {
     const getData = async () => {
       try {
-        const response = await axios.get("/systems"); // "/user-data" is the API endpoint
-        setRefrigerationSystems(response.data); 
+        const response = await axios.get("http://localhost:5001/api/systems");
+        setRefrigerationSystems(response.data);
       } catch (error) {
         console.error("Error fetching systems:", error);
       }
@@ -61,11 +61,11 @@ function ToolInput() {
             <option value="" disabled>
               Select a system
             </option>
-            {/* {refrigerationSystems.map((systems) => (
-              <option key={systems.id} value={systems.id}>
-                {systems.system_type}
+            {refrigerationSystems.map((system) => (
+              <option key={system.id} value={system.id}>
+                {system.system_type}
               </option>
-            ))} */}
+            ))}
           </select>
           
         </div>
