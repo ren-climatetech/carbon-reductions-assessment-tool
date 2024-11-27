@@ -6,7 +6,7 @@ import express from "express";
 
 const router = express.Router();
 
-router.get("/systems", async (req, res) => {
+router.get("/", async (req, res) => {
   try {
     const systems = await knex("refrigeration_systems") // connect to database table
       .select("id", "system_type", "gwp_limit"); // select data identifiers

@@ -7,18 +7,19 @@ function ToolInput() {
   const [formState, setFormState] = useState({
     refrigerationSystem: "",
     coolantType: "",
-    customValue: "",
+    weight: "",
     unit: "",
   });
 
   //Store data here
   const [refrigerationSystems, setRefrigerationSystems] = useState([]);
+  const [coolants, setCoolants] = useState([]);
   const [submitted, setSubmitted] = useState(false); 
 
   useEffect(() => {
     const getData = async () => {
       try {
-        const response = await axios.get("http://localhost:5001/api/systems");
+        const response = await axios.get("http://localhost:5002/api/systems");
         setRefrigerationSystems(response.data);
       } catch (error) {
         console.error("Error fetching systems:", error);
@@ -27,6 +28,19 @@ function ToolInput() {
 
     getData ();
   }, []); 
+
+  useEffect(() => {
+    const fetchCoolants = async () => {
+      try {
+        const response = await axios.get("http://localhost:5002/api/coolants");
+        setCoolants(response.data);
+      } catch (error) {
+        console.error("Error fetching coolants:", error);
+      }
+    };
+
+    fetchCoolants();
+  }, []);
 
   // Handle input changes
   const handleChange = (e) => {
@@ -42,11 +56,11 @@ function ToolInput() {
     e.preventDefault(); // Prevent default form submission
     console.log("Form Submitted:", formState);
     alert(
-      `System: ${formState.refrigerationSystem}\nCoolant: ${formState.coolantType}\nCustom Value: ${formState.customValue}\nUnit: ${formState.unit}`
+      `System: ${formState.refrigerationSystem}\nCoolant: ${formState.coolantData}\nCustom Value: ${formState.customValue}\nUnit: ${formState.unit}`
     );
 
     try {
-      const response = await axios.post("http://localhost:5001/results", formState);
+      const response = await axios.post("http://localhost:5002/results", formState);
     } catch (error) {
       console.error("Error fetching systems:", error);
     }
@@ -89,9 +103,11 @@ function ToolInput() {
           <option value="" disabled>
             Select a coolant
           </option>
-          <option value="coolantA">Coolant A</option>
-          <option value="coolantB">Coolant B</option>
-          <option value="coolantC">Coolant C</option>
+          {coolants.map((coolant, index) => (
+              <option key={index} value={coolant.coolant_type}>
+                {coolant.coolant_type}
+              </option>
+            ))}
         </select>
         </div>
 
