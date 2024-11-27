@@ -10,7 +10,7 @@ app.use(cors())
 app.use(express.json());
 app.use("/api/systems", systemsRouter);
 app.use("/api/coolants", coolantsRouter);
-app.use("/results", resultsRouter); 
+app.use("/api/results", resultsRouter); 
 
 
 

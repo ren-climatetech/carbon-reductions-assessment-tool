@@ -7,7 +7,7 @@ function ToolInput() {
   const [formState, setFormState] = useState({
     refrigerationSystem: "",
     coolantType: "",
-    weight: "",
+    weightValue: "",
     unit: "",
   });
 
@@ -55,12 +55,8 @@ function ToolInput() {
   const handleSubmit = async (e) => {
     e.preventDefault(); // Prevent default form submission
     console.log("Form Submitted:", formState);
-    alert(
-      `System: ${formState.refrigerationSystem}\nCoolant: ${formState.coolantData}\n table.increments("refrigerationSystem").notNullable();: ${formState.weight}\nUnit: ${formState.unit}`
-    );
-
     try {
-      const response = await axios.post("http://localhost:5002/results", formState);
+      const response = await axios.post("http://localhost:5002/api/results", formState);
     } catch (error) {
       console.error("Error fetching systems:", error);
     }
@@ -115,8 +111,8 @@ function ToolInput() {
         <label>Weight of Coolant Purchased Annually:</label>
         <input
           type="number"
-          id="weight"
-          name="weight"
+          id="weightValue"
+          name="weightValue"
           value={formState.weight}
           onChange={handleChange}
           placeholder="Enter value here in kg or lbs"

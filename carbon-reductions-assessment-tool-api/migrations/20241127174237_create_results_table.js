@@ -4,6 +4,7 @@
  */
 export function up(knex) {
     return knex.schema.createTable("results", function (table) {
+        table.increments("id");
         table.string("refrigerationSystem").notNullable();
         table.string("coolantType").notNullable();
         table.integer("weightValue").notNullable();
