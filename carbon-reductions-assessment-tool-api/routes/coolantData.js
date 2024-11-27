@@ -19,24 +19,4 @@ try {
 
 export default router;
 
-// draft for pulling data from the front end 
-//     const {refrigerationSystem, coolantType, amount} = req.body;
 
-//   try {
-//     const data = await knex("user-data") //new table name
-// .where({
-//     refrigeration_system: refrigerationSystem, 
-//     coolant_type: coolantType,
-// })
-// .select('*');
-
-// res.json(data);
-
-//   } catch (e) {
-//     res.status(500).json({
-//       message: "Error getting data",
-//     });
-//   }
-// });
-
-// export default router;

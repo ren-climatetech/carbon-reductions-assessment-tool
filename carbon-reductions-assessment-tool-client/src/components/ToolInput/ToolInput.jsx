@@ -56,7 +56,7 @@ function ToolInput() {
     e.preventDefault(); // Prevent default form submission
     console.log("Form Submitted:", formState);
     alert(
-      `System: ${formState.refrigerationSystem}\nCoolant: ${formState.coolantData}\nCustom Value: ${formState.customValue}\nUnit: ${formState.unit}`
+      `System: ${formState.refrigerationSystem}\nCoolant: ${formState.coolantData}\n table.increments("refrigerationSystem").notNullable();: ${formState.weight}\nUnit: ${formState.unit}`
     );
 
     try {
@@ -115,9 +115,9 @@ function ToolInput() {
         <label>Weight of Coolant Purchased Annually:</label>
         <input
           type="number"
-          id="customValue"
-          name="customValue"
-          value={formState.customValue}
+          id="weight"
+          name="weight"
+          value={formState.weight}
           onChange={handleChange}
           placeholder="Enter value here in kg or lbs"
           required
