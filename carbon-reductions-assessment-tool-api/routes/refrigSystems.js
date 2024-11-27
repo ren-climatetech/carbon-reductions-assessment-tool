@@ -7,10 +7,10 @@ const router = express.Router();
 
 router.get("/systems", async (req, res) => {
   try {
-    const refrigSystems = await knex("refrigeration_systems") // connect to database table
+    const systems = await knex("refrigeration_systems") // connect to database table
       .select("id", "system_type", "gwp_limit"); // select data identifiers
 
-    res.json(refrigSystems); // package and send as a JSON response
+    res.json(systems); // package and send as a JSON response
   } catch (e) {
     console.error("Error fetching refrigeration systems:", e);
     res.status(500).json({ message: "Failed to fetch systems" });

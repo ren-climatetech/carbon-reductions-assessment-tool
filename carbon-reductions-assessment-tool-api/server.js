@@ -5,7 +5,7 @@ import systemsRoutes from "./routes/refrigSystems.js";
 const app = express() 
 
 app.use(cors())
-
+app.use(express.json());
 app.use("/api", systemsRoutes);
 
 const PORT = process.env.PORT || 5000;
