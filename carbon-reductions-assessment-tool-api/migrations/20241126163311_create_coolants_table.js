@@ -3,7 +3,7 @@
  * @returns { Promise<void> }
  */
 export function up(knex) {
-  return knex.schema.createTable("coolants", function (table) {
+  return knex.schema.createTable("coolant_types", function (table) {
     table.increments("id");
     table.string("coolant_type").notNullable();
     table.string("formula").notNullable();
@@ -18,5 +18,5 @@ export function up(knex) {
  * @returns { Promise<void> }
  */
 export function down(knex) {
-  return knex.schema.dropTable("coolants");
+  return knex.schema.dropTable("coolant_types");
 }

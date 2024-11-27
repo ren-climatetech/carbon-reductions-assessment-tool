@@ -38,12 +38,19 @@ function ToolInput() {
   };
 
   // Handle form submission
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault(); // Prevent default form submission
     console.log("Form Submitted:", formState);
     alert(
       `System: ${formState.refrigerationSystem}\nCoolant: ${formState.coolantType}\nCustom Value: ${formState.customValue}\nUnit: ${formState.unit}`
     );
+
+    try {
+      const response = await axios.post("http://localhost:5001/results", formState);
+    } catch (error) {
+      console.error("Error fetching systems:", error);
+    }
+
   };
 
   return (
