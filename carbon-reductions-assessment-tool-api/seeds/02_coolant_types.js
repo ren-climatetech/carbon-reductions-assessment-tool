@@ -331,7 +331,7 @@ const coolants = [
 ];
 
 export async function seed(knex) {
-  // variables usersData and postsData are above
-  await knex("coolants").del();
-  await knex("coolants").insert(coolants);
+
+  await knex("coolant_types").del();
+  await knex("coolant_types").insert(coolants);
 }
