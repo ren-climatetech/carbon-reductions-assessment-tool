@@ -57,6 +57,9 @@ function ToolInput() {
     console.log("Form Submitted:", formState);
     try {
       const response = await axios.post("http://localhost:5002/api/results", formState);
+      if (response.status === 201) {
+        setSubmitted(true); 
+      }
     } catch (error) {
       console.error("Error fetching systems:", error);
     }
@@ -79,7 +82,7 @@ function ToolInput() {
               Select a system
             </option>
             {refrigerationSystems.map((system) => (
-              <option key={system.id} value={system.id}>
+              <option key={system.id} value={system.system_type}>
                 {system.system_type}
               </option>
             ))}
@@ -113,7 +116,7 @@ function ToolInput() {
           type="number"
           id="weightValue"
           name="weightValue"
-          value={formState.weight}
+          value={formState.weightValue}
           onChange={handleChange}
           placeholder="Enter value here in kg or lbs"
           required

@@ -3,13 +3,15 @@
  * @returns { Promise<void> }
  */
 export function up(knex) {
-    return knex.schema.createTable("results", function (table) {
-        table.increments("id");
-        table.string("refrigerationSystem").notNullable();
-        table.string("coolantType").notNullable();
-        table.integer("weightValue").notNullable();
-        table.string("unit").notNullable();
-});
+  return knex.schema.createTable("results", function (table) {
+    table.increments("id");
+    table.string("refrigerationSystem").notNullable();
+    table.string("coolantType").notNullable();
+    table.integer("weightValue").notNullable();
+    table.string("unit").notNullable();
+    table.integer("weightInMetricTons").notNullable();
+    table.integer("co2Equivalent").notNullable();
+  });
 }
 
 /**
@@ -17,5 +19,5 @@ export function up(knex) {
  * @returns { Promise<void> }
  */
 export function down(knex) {
-    return knex.schema.dropTable("results");
+  return knex.schema.dropTable("results");
 }
