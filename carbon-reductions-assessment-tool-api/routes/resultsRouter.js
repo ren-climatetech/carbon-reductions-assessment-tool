@@ -9,7 +9,13 @@ router
   .route("/")
   .post(async (req, res) => {
     try {
-      const { coolantType, unit, weightValue, ...otherFields } = req.body;
+      const {
+        refrigerationSystem,
+        coolantType,
+        weightValue,
+        unit,
+        ...otherFields
+      } = req.body;
 
       // Step 1: Calculate weightInMetricTons of the coolant purchased
       let weightInMetricTons;
@@ -30,19 +36,40 @@ router
       // Step 3: Calculate the CO2 equivalent
       const co2Equivalent = weightInMetricTons * gwp;
 
+      //Step 4: Find the gwp_limit from the refrigeration_systems table
+
+      const refrigerationSystemData = await knex("refrigeration_systems")
+        .select("gwp_limit")
+        .where("system_type", refrigerationSystem)
+        .first();
+
+        const gwp_limit = refrigerationSystemData.gwp_limit;
+        
+//Step 5: Multiply to get CO2e 
+        const gwpLimitResult = weightInMetricTons * gwp_limit;
+
+        //Step 6: Subtract
+
+        const difference = co2Equivalent - gwpLimitResult; 
+
+        const carboncredits = difference * 65;
+
       const dataToInsert = {
         ...otherFields,
         unit,
         weightValue,
         coolantType,
+        refrigerationSystem,
         weightInMetricTons,
         co2Equivalent,
+        gwpLimitResult,
+        difference,
+        carboncredits,
       };
-    
+
       const ids = await knex("results").insert(dataToInsert);
       const id = ids[0];
       res.status(201).json({ id });
-
     } catch (e) {
       console.log(e);
       res.status(500).json({

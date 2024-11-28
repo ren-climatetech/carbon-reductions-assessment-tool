@@ -11,6 +11,9 @@ export function up(knex) {
     table.string("unit").notNullable();
     table.integer("weightInMetricTons").notNullable();
     table.integer("co2Equivalent").notNullable();
+    table.integer("gwpLimitResult").notNullable();
+    table.integer("difference").notNullable;
+    table.integer("carboncredits").notNullable;
   });
 }
 
