@@ -10,12 +10,17 @@ router
   .post(async (req, res) => {
     try {
       const {
-        refrigerationSystem,
         coolantType,
-        weightValue,
         unit,
+        weightValue,
+        refrigerationSystem,
+
         ...otherFields
       } = req.body;
+
+      if (weightValue <= 0) {
+        return res.status(400).json({ message: "Weight must be positive" });
+      }
 
       // Step 1: Calculate weightInMetricTons of the coolant purchased
       let weightInMetricTons;
@@ -27,11 +32,12 @@ router
 
       // Step 2: Find the GWP value from the coolant_types table
       const coolant = await knex("coolant_types")
-        .select("gwp")
+        .select("gwp", "restricted")
         .where("coolant_type", coolantType) // Matches the coolantType in the database
         .first();
 
-      const gwp = coolant.gwp;
+      const { gwp, restricted } = coolant;
+      // const gwp = coolant.gwp;
 
       // Step 3: Calculate the CO2 equivalent
       const co2Equivalent = weightInMetricTons * gwp;
@@ -43,16 +49,16 @@ router
         .where("system_type", refrigerationSystem)
         .first();
 
-        const gwp_limit = refrigerationSystemData.gwp_limit;
-        
-//Step 5: Multiply to get CO2e 
-        const gwpLimitResult = weightInMetricTons * gwp_limit;
+      const gwp_limit = refrigerationSystemData.gwp_limit;
 
-        //Step 6: Subtract
+      //Step 5: Multiply to get CO2e
+      const gwpLimitResult = weightInMetricTons * gwp_limit;
 
-        const difference = co2Equivalent - gwpLimitResult; 
+      //Step 6: Subtract
 
-        const carboncredits = difference * 65;
+      const difference = co2Equivalent - gwpLimitResult;
+
+      const carboncredits = difference * 65;
 
       const dataToInsert = {
         ...otherFields,
@@ -69,7 +75,15 @@ router
 
       const ids = await knex("results").insert(dataToInsert);
       const id = ids[0];
-      res.status(201).json({ id });
+      res.status(201).json({
+        id,
+        weightInMetricTons,
+        co2Equivalent,
+        gwpLimitResult,
+        difference,
+        restricted,
+        carboncredits,
+      });
     } catch (e) {
       console.log(e);
       res.status(500).json({

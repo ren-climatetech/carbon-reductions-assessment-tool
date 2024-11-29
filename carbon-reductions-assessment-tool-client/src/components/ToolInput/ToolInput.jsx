@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import "./ToolInput.scss";
 import ArrowIcon from "../../assets/icons/arrow_drop_down-24px.svg";
+import AssessmentResults from "../AssessmentResults/AssessmentResults";
 
 function ToolInput() {
   const [formState, setFormState] = useState({
@@ -14,7 +15,8 @@ function ToolInput() {
   //Store data here
   const [refrigerationSystems, setRefrigerationSystems] = useState([]);
   const [coolants, setCoolants] = useState([]);
-  const [submitted, setSubmitted] = useState(false); 
+  const [submitted, setSubmitted] = useState(false);
+  const [submittedData, setSubmittedData] = useState(null);
 
   useEffect(() => {
     const getData = async () => {
@@ -26,8 +28,8 @@ function ToolInput() {
       }
     };
 
-    getData ();
-  }, []); 
+    getData();
+  }, []);
 
   useEffect(() => {
     const fetchCoolants = async () => {
@@ -56,19 +58,25 @@ function ToolInput() {
     e.preventDefault(); // Prevent default form submission
     console.log("Form Submitted:", formState);
     try {
-      const response = await axios.post("http://localhost:5002/api/results", formState);
+      const response = await axios.post(
+        "http://localhost:5002/api/results",
+        formState
+      );
       if (response.status === 201) {
-        setSubmitted(true); 
+        const { data } = response; 
+        setSubmittedData(data); 
+        setSubmitted(true);
       }
     } catch (error) {
       console.error("Error fetching systems:", error);
     }
-
   };
 
   return (
     <>
       <form onSubmit={handleSubmit} className="tool-input-form">
+
+        <div className="toolinput__container"> 
         <label>Refrigeration System:</label>
         <div className="dropdown-container">
           <select
@@ -87,87 +95,80 @@ function ToolInput() {
               </option>
             ))}
           </select>
-          
         </div>
 
         <div className="dropdown-container">
-        <label>Refrigerant Coolant Type:</label>
-        <select
-          id="coolantType"
-          name="coolantType"
-          value={formState.coolantType}
-          onChange={handleChange}
-          required
-        >
-          <option value="" disabled>
-            Select a coolant
-          </option>
-          {coolants.map((coolant, index) => (
+          <label>Refrigerant Coolant Type:</label>
+          <select
+            id="coolantType"
+            name="coolantType"
+            value={formState.coolantType}
+            onChange={handleChange}
+            required
+          >
+            <option value="" disabled>
+              Select a coolant
+            </option>
+            {coolants.map((coolant, index) => (
               <option key={index} value={coolant.coolant_type}>
                 {coolant.coolant_type}
               </option>
             ))}
-        </select>
+          </select>
+        </div>
         </div>
 
-<div >
-        <label>Weight of Coolant Purchased Annually:</label>
-        <input
-          type="number"
-          id="weightValue"
-          name="weightValue"
-          value={formState.weightValue}
-          onChange={handleChange}
-          placeholder="Enter value here in kg or lbs"
-          required
-           min="0"
-           step="0.01"
-        />
+        <div className="toolinput__container"> 
+        <div>
+          <label>Weight of Coolant Purchased Annually:</label>
+          <input
+            type="number"
+            id="weightValue"
+            name="weightValue"
+            value={formState.weightValue}
+            onChange={handleChange}
+            placeholder="Enter value here in kg or lbs"
+            required
+            min="0"
+            step="0.01"
+          />
         </div>
-
 
         <label>Select Unit of Measurement:</label>
 
         <div className="toolinput__unit">
-       <div className="toolinput__unit-container">
-        <input
-          type="radio"
-          id="kg"
-          name="unit"
-          value="kg"
-          checked={formState.unit === "kg"}
-          onChange={handleChange}
-          required
-        />
-        <label>Kilograms (kg)</label>
-        </div>
-      
-      <div className="toolinput__unit-container">
-        <input
-          type="radio"
-          id="lbs"
-          name="unit"
-          value="lbs"
-          checked={formState.unit === "lbs"}
-          onChange={handleChange}
-        />
-        <label>Pounds (lbs)</label>
+          <div className="toolinput__unit-container">
+            <input
+              type="radio"
+              id="kg"
+              name="unit"
+              value="kg"
+              checked={formState.unit === "kg"}
+              onChange={handleChange}
+              required
+            />
+            <label>Kilograms (kg)</label>
+          </div>
+
+          <div className="toolinput__unit-container">
+            <input
+              type="radio"
+              id="lbs"
+              name="unit"
+              value="lbs"
+              checked={formState.unit === "lbs"}
+              onChange={handleChange}
+            />
+            <label>Pounds (lbs)</label>
+          </div>
         </div>
         </div>
 
         <button type="submit">Submit</button>
-      
       </form>
 
- {/* To conditionally render admin tab replace submitted && with "user?.role === "admin" &&"" */}
-      {submitted && (
-        <div className="assessment-content">
-          <h2>Your Assessment</h2>
-          <p>
-            Based on the information provided, here is our estimate of your emissions, eligibility, and projected carbon credits.
-          </p>
-        </div>
-      )}
+      {/* To conditionally render admin tab replace submitted && with "user?.role === "admin" &&"" */}
+      {submitted && <AssessmentResults data={submittedData} />}
     </>
   );
 }

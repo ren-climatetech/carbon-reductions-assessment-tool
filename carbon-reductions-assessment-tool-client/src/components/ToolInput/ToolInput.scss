@@ -3,7 +3,7 @@
 @use "../../styles/partials/globals" as *;
 
 .tool-input-form {
-  max-width: 500px;
+  max-width: 31.25rem;
   margin: 2rem auto;
   padding: 2rem;
   background-color: $primaryWhite;
@@ -15,6 +15,7 @@
     font-size: 1rem;
     font-weight: 600;
     color: $secondaryDarkPurple;
+    padding-bottom: .25rem;
   }
 
   select,
@@ -27,6 +28,7 @@
     border-radius: .5rem;
     font-size: 1rem;
     transition: all 0.3s ease;
+    font-family: "WorkSans", sans-serif;
 
     &:focus {
       outline: none;
@@ -70,3 +72,11 @@
   margin-right: 2rem;
   padding: 0.5rem 0;
 }
+
+
+// .toolinput__container{
+//   @include desktop{
+//     display: flex;
+//     flex-direction: row;
+//     border: 2px solid red;
+//   }

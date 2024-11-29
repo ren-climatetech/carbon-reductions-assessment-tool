@@ -1,0 +1,83 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/globals" as *;
+
+.assessment__content {
+  max-width: 31.25rem;
+  margin: 2rem auto;
+  padding: 2rem;
+  background-color: $primaryWhite;
+  border-radius: 0.75rem;
+  box-shadow: 0 0.25rem 0.625rem rgba(0, 0, 0, 0.1);
+
+  h2 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: $secondaryDarkPurple;
+    margin-bottom: 1rem;
+  }
+
+  p {
+    font-size: 1rem;
+    color: $primaryNavy;
+    line-height: 1.5;
+    margin-bottom: 1.5rem;
+  }
+
+  ul {
+    list-style-type: none;
+    padding-left: 0;
+
+    li {
+      font-size: 1rem;
+      font-weight: 400;
+      color: $primaryNavy;
+      margin-bottom: 0.8rem;
+
+      &.emissions {
+        font-weight: 600;
+        color: $secondaryDarkPurple;
+      }
+
+      &.credits {
+        font-weight: 600;
+        color: $primaryNavy;
+      }
+    }
+  }
+
+  .assessment__content--restricted {
+    background-color: #ffe6e6;
+    border: 1px solid #f5b0b0;
+  }
+
+  .assessment__content--eligible {
+    background-color: #e6f7e6;
+    border: 1px solid #b0e6b0;
+  }
+
+  .assessment__content--not-eligible {
+    background-color: #f0f0f0;
+    border: 1px solid #d0d0d0;
+  }
+}
+
+button {
+  background-color: $primaryNavy;
+  color: $primaryWhite;
+  padding: 0.8rem 1.2rem;
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 1rem;
+  margin-top: 1.5rem;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+
+  &:hover {
+    background-color: $secondaryDarkPurple;
+  }
+  &:active {
+    transform: scale(0.98);
+  }
+}
