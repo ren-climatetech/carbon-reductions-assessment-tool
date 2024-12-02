@@ -48,17 +48,17 @@
 
   .assessment__content--restricted {
     background-color: #ffe6e6;
-    border: 1px solid #f5b0b0;
+    border: .0625rem solid #f5b0b0;
   }
 
   .assessment__content--eligible {
-    background-color: #e6f7e6;
-    border: 1px solid #b0e6b0;
+    background-color: $primaryGrey;
+    border: .0625rem solid $primaryGreen;
   }
 
   .assessment__content--not-eligible {
     background-color: #f0f0f0;
-    border: 1px solid #d0d0d0;
+    border: .0625rem solid #d0d0d0;
   }
 }
 

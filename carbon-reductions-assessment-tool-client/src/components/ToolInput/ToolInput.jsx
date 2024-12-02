@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import "./ToolInput.scss";
-import ArrowIcon from "../../assets/icons/arrow_drop_down-24px.svg";
 import AssessmentResults from "../AssessmentResults/AssessmentResults";
 
 function ToolInput() {

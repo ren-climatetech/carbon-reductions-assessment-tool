@@ -12,7 +12,9 @@ function Header() {
   return (
     <header className="navigation">
       <div className="navigation__logo">
-        <img src={logo} alt="Company Logo" />
+      <a href="/"> 
+          <img src={logo} alt="Company Logo" />
+        </a>
       </div>
       <div className="navigation__bar">
         <button className="navigation__toggle" onClick={toggleMenu}>
@@ -29,9 +31,9 @@ function Header() {
         <a href="/" className="navigation__link">
           Home Page
         </a>
-        <a href="/services" className="navigation__link">
-          About Us
-        </a>
+        {/* <a href="/admin" className="navigation__link">
+          Admin Page
+        </a> */}
         <a href="/assessment" className="navigation__link">
           Assessment
         </a>

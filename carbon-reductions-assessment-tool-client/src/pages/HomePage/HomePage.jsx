@@ -21,7 +21,6 @@ function HomePage() {
       <section>
         <Services />
       </section>
-      <section></section>
       <footer></footer>
     </div>
   );

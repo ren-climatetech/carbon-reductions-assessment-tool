@@ -24,7 +24,7 @@
     width: 100%;
     padding: 0.8rem;
     margin-bottom: 1rem;
-    border: 1px solid $primaryNavy;
+    border: .0625rem solid $primaryNavy;
     border-radius: .5rem;
     font-size: 1rem;
     transition: all 0.3s ease;
@@ -33,7 +33,7 @@
     &:focus {
       outline: none;
       border-color: $secondaryDarkPurple;
-      box-shadow: 0 0 5px rgba($primaryNavy, 0.5);
+      box-shadow: 0 0 .3125rem rgba($primaryNavy, 0.5);
     }
   }
 
@@ -72,11 +72,3 @@
   margin-right: 2rem;
   padding: 0.5rem 0;
 }
-
-
-// .toolinput__container{
-//   @include desktop{
-//     display: flex;
-//     flex-direction: row;
-//     border: 2px solid red;
-//   }

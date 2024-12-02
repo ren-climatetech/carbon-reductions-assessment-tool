@@ -1,0 +1,67 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/globals" as *;
+
+.footer {
+  background-color: $primaryNavy;
+  color: $primaryWhite;
+  padding: 1.5rem;
+  text-align: center;
+
+  &__content {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    max-width: 75rem;
+    margin: 0 auto;
+  }
+
+  &__section {
+    flex: 1 1 30%;
+  }
+
+  &__title {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+  }
+
+  &__section-description {
+    font-style: italic;
+  }
+  &__links {
+    list-style: none;
+    padding: 0;
+  }
+
+  &__link {
+    color: $primaryWhite;
+    text-decoration: none;
+
+    margin-bottom: 0.5rem;
+  }
+
+  &__link:hover {
+    color: $primaryGreen;
+  }
+
+  &__socials {
+    display: flex;
+    gap: 0.625rem;
+    justify-content: center;
+  }
+
+  &__social-icon {
+    width: 2.5rem;
+  }
+
+  &__social-link:hover {
+    color: $primaryGreen;
+  }
+
+  &__bottom {
+    margin-top: 1.25rem;
+    font-size: .875rem;
+    color: $primaryWhite;
+  }
+}
