@@ -4,6 +4,8 @@ import systemsRouter from "./routes/refrigSystems.js";
 import coolantsRouter from "./routes/coolantData.js"; 
 import resultsRouter from "./routes/resultsRouter.js";
 
+const BASE_URL = import.meta.env.VITE_API_URL;
+
 const app = express() 
 
 app.use(cors())
@@ -17,5 +19,5 @@ app.use("/api/results", resultsRouter);
 
 const PORT = process.env.PORT || 5002;
 app.listen(PORT, () => {
-  console.log(`Server running on http://localhost:${PORT}`);
+  console.log(`Server running on ${BASE_URL}:${PORT}`);
 });
