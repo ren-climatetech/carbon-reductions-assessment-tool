@@ -34,7 +34,7 @@ Libraries: Axios for API requests. (Chart.js may be implemented for visualizing 
 ### APIs
 
 - EPA's GHG Emission Factors Hub will be the database source for refrigerant GWP data.
-- Canada’s GHG Offset Credit System reference datasets will be used a database source for coolant eligibility
+- Canada’s GHG Offset Credit System reference datasets will be used as a database source for coolant eligibility
 
 ### Sitemap
 
@@ -45,13 +45,10 @@ Home
 Assessment
 
 - This page will render as the Carbon Credit Assessment Tool
-- Uers will be required to ipput fields for refrigerant data
+- Users will be required to input fields for refrigerant data
 
-Login Page
 
-- This page will allow users to access their assessment
-
-Eligibility
+Eligibility (subpage of the Assessment)
 
 - Emissions calculation results will appear on this page for each equipment type and its associated coolant
 - Results showing eligibility with offset program criteria and additional information on next steps
