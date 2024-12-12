@@ -3,6 +3,8 @@ import axios from "axios";
 import "./ToolInput.scss";
 import AssessmentResults from "../AssessmentResults/AssessmentResults";
 
+const BASE_URL = import.meta.env.VITE_API_URL;
+
 function ToolInput() {
   const [formState, setFormState] = useState({
     refrigerationSystem: "",
@@ -20,7 +22,7 @@ function ToolInput() {
   useEffect(() => {
     const getData = async () => {
       try {
-        const response = await axios.get("http://localhost:5002/api/systems");
+        const response = await axios.get(`${BASE_URL}/api/systems`);
         setRefrigerationSystems(response.data);
       } catch (error) {
         console.error("Error fetching systems:", error);
@@ -33,7 +35,7 @@ function ToolInput() {
   useEffect(() => {
     const fetchCoolants = async () => {
       try {
-        const response = await axios.get("http://localhost:5002/api/coolants");
+        const response = await axios.get(`${BASE_URL}/api/coolants`);
         setCoolants(response.data);
       } catch (error) {
         console.error("Error fetching coolants:", error);
@@ -58,7 +60,7 @@ function ToolInput() {
     console.log("Form Submitted:", formState);
     try {
       const response = await axios.post(
-        "http://localhost:5002/api/results",
+        `${BASE_URL}/api/results`,
         formState
       );
       if (response.status === 201) {

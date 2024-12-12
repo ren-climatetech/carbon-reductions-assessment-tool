@@ -1,11 +1,13 @@
 import { useEffect, useState } from "react";
 
+const BASE_URL = import.meta.env.VITE_API_URL;
+
 const AdminPage = () => {
   const [data, setData] = useState(null);
 
   // Fetch data from the API when the component mounts
   useEffect(() => {
-    fetch("http://localhost:5002/api/results")
+    fetch(`${BASE_URL}/api/results`)
       .then((response) => response.json())
       .then((result) => setData(result))
       .catch((error) => console.error("Error fetching data:", error));
