@@ -21,3 +21,7 @@ const PORT = process.env.PORT || 5002;
 app.listen(PORT, () => {
   console.log(`Server running on ${BASE_URL}:${PORT}`);
 });
+
+const { CORS_ORIGIN } = process.env;
+
+app.use(cors({ origin: CORS_ORIGIN }));
