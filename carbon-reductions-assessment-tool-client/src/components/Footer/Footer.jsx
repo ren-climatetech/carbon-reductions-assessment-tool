@@ -24,11 +24,11 @@ function Footer() {
                 Home
               </a>
             </li>
-            <li>
+            {/* <li>
               <a href="/services" className="footer__link">
                 Services
               </a>
-            </li>
+            </li> */}
 
             <li>
               <a href="/assessment" className="footer__link">
