@@ -5,10 +5,13 @@ import coolantsRouter from "./routes/coolantData.js";
 import resultsRouter from "./routes/resultsRouter.js";
 
 const BASE_URL = import.meta.env.VITE_API_URL;
+const { CORS_ORIGIN } = process.env;
 
 const app = express() 
 
-app.use(cors())
+// app.use(cors())
+
+app.use(cors({ origin: CORS_ORIGIN }));
 app.use(express.json());
 app.use("/api/systems", systemsRouter);
 app.use("/api/coolants", coolantsRouter);
@@ -22,6 +25,5 @@ app.listen(PORT, () => {
   console.log(`Server running on ${BASE_URL}:${PORT}`);
 });
 
-const { CORS_ORIGIN } = process.env;
 
-app.use(cors({ origin: CORS_ORIGIN }));
+
