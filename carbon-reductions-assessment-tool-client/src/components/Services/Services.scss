@@ -11,7 +11,7 @@
 
   @include desktop {
     display: flex;
-
+gap: 1rem;
     justify-content: center;
     margin-top: -5rem;
   }
@@ -20,10 +20,9 @@
     display: flex;
     margin: 0 1rem;
     margin-bottom: 1rem;
-    border-radius: 0.5rem;
-    background: rgba($primaryWhite, 0.2);
-    // border: 0.05rem solid $secondaryDarkPurple;
-    box-shadow: 0.2rem 0rem .2rem rgba($primaryWhite, 0.25);
+    border-radius: 1rem;
+    background: rgba($primaryWhite, .96);
+    box-shadow: 0rem .25rem 1.25rem rgba($primaryWhite, 0.3);
 
     @include desktop {
       display: flex;
@@ -44,11 +43,11 @@
     }
   }
   &__image {
-    width: 12rem;
-    height: 12rem;
+    width: 8rem;
+    height: 8rem;
     background-size: cover;
-    border-bottom-left-radius: 0.5rem;
-    border-top-left-radius: 0.5rem;
+    border-bottom-left-radius: 1rem;
+    border-top-left-radius: 1rem;
     z-index: 2;
 
     @include tablet{
@@ -57,32 +56,35 @@
     }
 
     @include desktop {
-      width: 25rem;
-      height: 25rem;
+      width: 26rem;
+      height: 26rem;
       border-top: 0.5rem;
       border-bottom: 0;
       border-bottom-left-radius: 0rem;
-      border-top-left-radius: 0.5rem;
-      border-top-right-radius: 0.5rem;
+      border-top-left-radius: 1rem;
+      border-top-right-radius: 1rem;
       marigin-top: -3 rem;
     }
   }
   &__title {
     padding: 0.5rem 1.25rem;
+    color: $primaryNavy;
 
     @include desktop {
-      background-color: $secondaryDarkPurpleGrey;
       display: flex;
       justify-content: center;
-      padding: 1rem;
-      border-bottom: .125rem solid rgba($primaryWhite, 0.6);
+      padding-top: 1rem;
     }
   }
   &__description {
+    color: $primaryNavy;
     padding: 0.5rem 1.25rem;
     text-align: justify;
     @include desktop {
-      padding: 1.5rem;
+
+      padding-top: 0.5rem;
+      padding-bottom: 1.25rem;
+     
     }
   }
 }

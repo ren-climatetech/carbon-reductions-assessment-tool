@@ -26,7 +26,7 @@ function Services() {
         <img className="services__image" src={credits}/>
         <div className="services__container-text">
         <h2 className="services__title">RECs and Carbon Credits </h2>
-        <p className="services__description">While reducing emissions is crucial, some carbon output may be unavoidable. Our carbon credit purchasing service allows you to offset these emissions by investing in certified environmental projects. Not only do you neutralize your remaining emissions but also support projects that make a positive difference in the world.</p>
+        <p className="services__description">While reducing emissions is crucial, some carbon output may be unavoidable. Our carbon credit purchasing service allows you to offset these emissions by investing in certified environmental projects to meet your organization's net zero goals and contribute to a more sustainable future. </p>
       </div>
       </div>
     </div>
