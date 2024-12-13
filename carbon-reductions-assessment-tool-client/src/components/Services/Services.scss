@@ -5,86 +5,95 @@
   background-color: $primaryNavy;
   padding: 1rem 0;
 
-    @include tablet{
-      padding: 1rem 3rem;
-    }
+  @include tablet {
+    padding: 1rem 3rem;
+  }
 
   @include desktop {
     display: flex;
-gap: 1rem;
+    gap: 1rem;
     justify-content: center;
     margin-top: -5rem;
   }
 
   &__container {
     display: flex;
+    flex-direction: column;
+    // align-items: center;
     margin: 0 1rem;
     margin-bottom: 1rem;
     border-radius: 1rem;
-    background: rgba($primaryWhite, .96);
-    box-shadow: 0rem .25rem 1.25rem rgba($primaryWhite, 0.3);
+    background: rgba($primaryWhite, 0.96);
+background: linear-gradient(90deg, $primaryWhite, $primaryGrey);
+    box-shadow: 0rem 0.25rem 1.25rem rgba($primaryWhite, 0.3);
 
     @include desktop {
       display: flex;
       flex-direction: column;
       align-items: center;
       z-index: 2;
+      background: linear-gradient(90deg, $primaryWhite, $primaryGrey);
     }
   }
   &__container-text {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: space-evenly;
     justify-items: center;
 
     @include desktop {
       text-align: center;
+      flex-direction: column;
       max-width: 25rem;
     }
   }
   &__image {
-    width: 8rem;
-    height: 8rem;
+    width: 9rem;
+    height: 9rem;
     background-size: cover;
     border-bottom-left-radius: 1rem;
-    border-top-left-radius: 1rem;
     z-index: 2;
 
-    @include tablet{
-      width: 15rem;
-      height: 15rem;
+    @include tablet {
+      width: 11rem;
+      height: 11rem;
     }
 
     @include desktop {
-      width: 26rem;
-      height: 26rem;
+      width: 25rem;
+      height: 25rem;
       border-top: 0.5rem;
       border-bottom: 0;
       border-bottom-left-radius: 0rem;
-      border-top-left-radius: 1rem;
-      border-top-right-radius: 1rem;
       marigin-top: -3 rem;
     }
   }
   &__title {
     padding: 0.5rem 1.25rem;
-    color: $primaryNavy;
+
+    background-color: rgba($primaryNavy, 0.5);
+
+    color: rgba($primaryWhite, 0.96);
 
     @include desktop {
       display: flex;
       justify-content: center;
       padding-top: 1rem;
+      background-color: transparent;
+      color: $primaryNavy;
+      
     }
   }
   &__description {
     color: $primaryNavy;
     padding: 0.5rem 1.25rem;
     text-align: justify;
+    background: $primaryWhite;
     @include desktop {
-
       padding-top: 0.5rem;
       padding-bottom: 1.25rem;
-     
+      border-bottom-left-radius: 1rem;
+      border-bottom-right-radius: 1rem;
     }
   }
 }
